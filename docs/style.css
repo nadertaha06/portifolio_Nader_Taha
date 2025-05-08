@@ -1,0 +1,293 @@
+/* style.css */
+
+/* Importa fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Corpo com gradiente suave */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+  color: #333333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Cabeçalho fixo com efeito blur */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+/* Container e alinhamento */
+.header-container {
+  max-width: 1200px;
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Título */
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333333;
+}
+
+/* Navegação centralizada */
+nav {
+  flex: 1;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #4ca1af;
+}
+
+/* Botões sociais no canto direito */
+.github-btn,
+.linkedin-btn,
+.email-btn{
+  display: flex;
+  align-items: center;
+  color: #333333;
+  margin-left: 0.5rem;
+  transition: color 0.3s;
+}
+
+.github-btn svg,
+.linkedin-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.github-btn:hover {
+  color: #4ca1af;
+}
+
+.linkedin-btn:hover {
+  color: #0077B5;
+}
+.email-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  /* estado normal: tons de cinza */
+  filter: grayscale(100%) brightness(0.7);
+  transition: filter 0.3s;
+}
+
+.email-btn:hover .email-icon {
+  /* estado hover: remove o cinza e retorna ao brilho total */
+  filter: grayscale(0%) brightness(1);
+}
+
+.email-btn:active .email-icon {
+  /* estado clicado: um toque de transparência */
+  filter: grayscale(0%) brightness(1) opacity(0.6);
+}
+
+
+/* Conteúdo principal */
+main {
+  max-width: 1200px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Seções */
+section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 80px;
+}
+
+/* Sobre */
+#about p {
+  max-width: 700px;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* Área de Projetos */
+#projects h2 {
+  /* Espaçamento inferior aumentado conforme solicitação */
+  margin-bottom: 2rem;
+}
+
+.project {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* Espaçamento superior para separar do título */
+  margin-top: 1rem;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.project h3 {
+  margin-bottom: 0.5rem;
+  color: #4ca1af;
+  font-size: 1.4rem;
+}
+
+.project p {
+  margin-bottom: 1rem;
+  color: #555555;
+}
+
+.project a {
+  text-decoration: none;
+  color: #4ca1af;
+  font-weight: 500;
+}
+/* === Sobre Mim: layout texto + foto === */
+#about .about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem; /* espaçamento para a próxima seção */
+}
+
+#about .about-content {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  flex: 1; /* ocupa todo o espaço restante */
+}
+
+#about .about-photo {
+  flex-shrink: 0;
+  width: 300px; /* ajuste ao tamanho da sua foto */
+}
+
+#about .about-photo img {
+  display: block;
+  width: 100%;
+  height: 330px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Responsivo: em telas menores empilha verticalmente */
+@media (max-width: 768px) {
+  #about .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  #about .about-photo {
+    width: 150px;
+    margin-top: 1rem;
+  }
+}
+
+/* === Formulário de Contato === */
+.contact-form {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin-top: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.contact-form label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #4ca1af;
+}
+.btn-submit {
+  display: inline-block;
+  background: #4ca1af;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-submit:hover {
+  background: #429192;
+  transform: translateY(-2px);
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #777777;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  main,
+  .contact-form {
+    width: 100%;
+    max-width: none;
+    margin: 1rem;
+  }
+}
